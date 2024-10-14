@@ -73,44 +73,46 @@ a:focus {
 
 
 /**********************************/
-/********** Top Bar CSS ***********/
+/********** Top Bar CSS **********/
 /**********************************/
 .top-bar {
     position: relative;
-    height: 90px;
+    height: auto; /* Set to auto to adjust based on content */
     background: #FFA500; /* Dark, professional color */
-    padding: 0 20px;
+    padding: 10px 20px; /* Padding adjustment */
+    display: flex; /* Flexbox for better alignment */
+    flex-direction: column; /* Allow for vertical stacking */
 }
 
 .top-bar .logo {
     padding: 10px 0;
-    text-align: left;
-    overflow: hidden;
+    text-align: center; /* Center logo for better mobile view */
 }
 
 .top-bar .logo h1 {
     margin: 0;
     color: #000000; /* Contrast against dark background */
-    font-size: 36px; /* Slightly reduced for balance */
-    line-height: 60px;
+    font-size: 28px; /* Adjusted font size for better mobile view */
+    line-height: 1.2; /* Adjust line-height */
     font-weight: 700;
 }
 
 .top-bar .logo img {
-    max-width: 100%;
+    max-width: 100%; /* Ensure logo is responsive */
     max-height: 60px;
+    height: auto; /* Maintain aspect ratio */
     transition: transform 0.3s ease-in-out;
 }
 
 .top-bar .logo img:hover {
-    transform: scale(1.1); /* Slight hover effect for interactivity */
+    transform: scale(1.05); /* Slight hover effect for interactivity */
 }
 
 .top-bar .top-bar-item {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin: 0 10px;
+    justify-content: center; /* Center items for better alignment */
+    margin: 10px 0; /* Spacing for mobile view */
 }
 
 .top-bar .top-bar-icon {
@@ -136,6 +138,7 @@ a:focus {
 
 .top-bar .top-bar-text {
     padding-left: 15px;
+    text-align: center; /* Center text for mobile view */
 }
 
 .top-bar .top-bar-text h4 {
@@ -154,33 +157,15 @@ a:focus {
 
 @media (min-width: 992px) {
     .top-bar {
-        padding: 0 40px; /* Adjusted for balance */
-    }
-}
-
-@media (max-width: 991.98px) {
-    .top-bar {
-        height: auto;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .top-bar .logo {
-        text-align: center;
+        padding: 0 40px; /* Adjusted for balance on larger screens */
+        flex-direction: row; /* Change to row for larger screens */
+        align-items: center; /* Align items to center */
     }
 
     .top-bar .top-bar-item {
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .top-bar .top-bar-text {
-        padding-left: 0;
-        text-align: center;
+        margin-top: 0; /* Reset margin for larger screens */
     }
 }
-
-
 
 /**********************************/
 /*********** Nav Bar CSS **********/
@@ -190,7 +175,6 @@ a:focus {
     background: #546c2f; /* Updated background color for branding consistency */
     transition: background-color 0.3s ease, padding 0.3s ease;
     width: 100%; /* Ensure the nav-bar spans the full width */
-    padding: 0; /* Removed padding for full-width background */
 }
 
 .nav-bar .container-fluid {
@@ -207,7 +191,7 @@ a:focus {
 }
 
 .nav-bar .navbar {
-    height: 100%;
+    height: auto; /* Allow for flexible height */
     background: #546c2f !important; /* Consistent background color */
     padding: 10px 20px; /* Padding for internal spacing */
 }
@@ -219,6 +203,7 @@ a:focus {
     padding: 12px 15px;
     color: #FFFFFF; /* Text color */
     transition: color 0.3s ease;
+    font-size: 14px; /* Smaller font size for better readability */
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -305,8 +290,6 @@ a:focus {
 }
 
 
-
-
 /*******************************/
 /******** Carousel CSS *********/
 /*******************************/
@@ -315,9 +298,6 @@ a:focus {
     width: 100%;
     height: calc(100vh - 170px);
     min-height: 400px;
-    margin: 0 auto;
-    text-align: center;
-    overflow: hidden;
 }
 
 .carousel .carousel-inner,
@@ -340,94 +320,41 @@ a:focus {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .3);
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .carousel .carousel-caption {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: calc(100vh - 170px);
-    min-height: 400px;
 }
 
 .carousel .carousel-caption p {
     color: #ffffff;
     font-size: 30px;
     margin-bottom: 15px;
-    letter-spacing: 1px;
 }
 
 .carousel .carousel-caption h1 {
     color: #ffffff;
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 35px;
 }
 
-.carousel .carousel-caption .btn {
+.carousel .btn {
     padding: 15px 35px;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: transparent;
-    border: 2px solid #ffffff;
-    border-radius: 0;
-    transition: .3s;
 }
 
-.carousel .carousel-caption .btn:hover {
-    color: #030f27;
-    background: #fdbe33;
-    border-color: #fdbe33;
-}
-
-@media (max-width: 767.98px) {
-    .carousel .carousel-caption h1 {
-        font-size: 40px;
-        font-weight: 700;
-    }
-    
-    .carousel .carousel-caption p {
-        font-size: 20px;
-    }
-    
-    .carousel .carousel-caption .btn {
-        padding: 12px 30px;
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: 0;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .carousel .carousel-caption h1 {
-        font-size: 30px;
-        font-weight: 500;
-    }
-    
-    .carousel .carousel-caption p {
-        font-size: 16px;
-    }
-    
-    .carousel .carousel-caption .btn {
-        padding: 10px 25px;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
-    }
-}
-
-.carousel .animated {
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
+.modal-content {
+    border-radius: 8px; /* Rounded corners for modal */
 }
 
 
@@ -487,6 +414,10 @@ a:focus {
     display: none;
 }
 
+
+/*******************************/
+/******* Responsive Styles *******/
+/*******************************/
 @media (max-width: 991.98px) {
     .page-header {
         padding: 60px 0;
@@ -557,7 +488,7 @@ a:focus {
 .feature .col-md-12 {
     background: #030f27;
 }
-    
+
 .feature .col-md-12:nth-child(2n) {
     color: #030f27;
     background: #fdbe33;
@@ -647,53 +578,53 @@ a:focus {
 .about {
     position: relative;
     width: 100%;
-    padding: 45px 0;
+    padding: 45px 0; /* Consistent vertical padding */
 }
 
 .about .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Maintain space below header */
 }
 
 .about .about-img {
     position: relative;
-    height: 100%;
+    height: 100%; /* Ensures img takes full height */
 }
 
 .about .about-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Cover to maintain aspect ratio */
 }
 
 .about .about-text p {
-    font-size: 16px;
+    font-size: 16px; /* Base font size */
 }
 
 .about .about-text a.btn {
     position: relative;
     margin-top: 15px;
     padding: 15px 35px;
-    font-size: 16px;
+    font-size: 16px; /* Font size for button */
     font-weight: 500;
     letter-spacing: 1px;
-    color: #030f27;
-    border-radius: 0;
-    background: #fdbe33;
-    transition: .3s;
+    color: #030f27; /* Button text color */
+    border-radius: 0; /* No border radius */
+    background: #fdbe33; /* Button background */
+    transition: .3s; /* Smooth transition for hover */
 }
 
 .about .about-text a.btn:hover {
-    color: #fdbe33;
-    background: #030f27;
+    color: #fdbe33; /* Change text color on hover */
+    background: #030f27; /* Change background on hover */
 }
 
+/* Responsive styles */
 @media (max-width: 767.98px) {
     .about .about-img {
-        margin-bottom: 30px;
-        height: auto;
+        margin-bottom: 30px; /* Space below image */
+        height: auto; /* Allow auto height for smaller screens */
     }
 }
-
 
 /*******************************/
 /********** Fact CSS ***********/
@@ -701,64 +632,62 @@ a:focus {
 .fact {
     position: relative;
     width: 100%;
-    padding: 40px 0; /* Increased padding for a more spacious layout */
-    background-color: #f8f9fa; /* Light background for better contrast */
+    padding: 40px 0; /* Increased padding for spacious layout */
+    background-color: #f8f9fa; /* Light background for contrast */
 }
 
 .fact .col-6 {
     display: flex;
-    align-items: center; /* Centered icons and text vertically */
-    justify-content: center; /* Centered content horizontally */
+    align-items: center; /* Centered vertically */
+    justify-content: center; /* Centered horizontally */
 }
 
 .fact .fact-icon {
     position: relative;
-    margin: 15px; /* Uniform margin for consistent spacing */
+    margin: 15px; /* Uniform margin */
     width: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center icon in container */
 }
 
 .fact .fact-icon [class^="flaticon-"]::before {
     margin: 0;
-    font-size: 60px;
-    line-height: 60px;
-    background-image: linear-gradient(#ffffff, #fdbe33);
+    font-size: 60px; /* Icon size */
+    line-height: 60px; /* Align icon vertically */
+    background-image: linear-gradient(#ffffff, #fdbe33); /* Default gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: background-image 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .fact .fact-icon:hover [class^="flaticon-"]::before {
-    background-image: linear-gradient(#fdbe33, #ffffff); /* Hover effect for icons */
+    background-image: linear-gradient(#fdbe33, #ffffff); /* Hover effect */
 }
 
 .fact .fact-right .fact-icon [class^="flaticon-"]::before {
-    background-image: linear-gradient(#ffffff, #030f27);
+    background-image: linear-gradient(#ffffff, #030f27); /* Icon color for right section */
 }
 
 .fact .fact-text h2 {
-    font-size: 36px; /* Slightly increased font size for emphasis */
+    font-size: 36px; /* Increased font size for emphasis */
     font-weight: 700;
-    color: #030f27; /* Dark color for the main numbers */
+    color: #030f27; /* Dark color for numbers */
 }
 
 .fact .fact-text p {
     margin: 0;
-    font-size: 18px; /* Increased font size for better readability */
+    font-size: 18px; /* Better readability */
     font-weight: 600;
-    text-transform: uppercase;
-    color: #6c757d; /* Muted color for descriptions */
+    text-transform: uppercase; /* Uppercase for descriptions */
+    color: #6c757d; /* Muted color */
 }
 
 .fact .fact-left {
-    /* background-color: #000000; */
-    color: #546c2f; /* Ensured text is dark for readability */
+    color: #546c2f; /* Dark text for readability */
 }
 
 .fact .fact-right {
-    /* background-color: #000000; */
     color: #fdbe33; /* Light text for readability */
 }
 
@@ -767,16 +696,14 @@ a:focus {
     color: inherit; /* Use inherited color for h2 */
 }
 
-
-
 /*******************************/
 /********* Service CSS *********/
 /*******************************/
 .service {
     position: relative;
     width: 100%;
-    padding: 45px 0 15px 0;
-    background: #f8f9fa; /* Optional: Add a background for contrast */
+    padding: 45px 0 15px 0; /* Consistent padding */
+    background: #f8f9fa; /* Optional: Background for contrast */
 }
 
 .service .service-item {
@@ -799,8 +726,8 @@ a:focus {
 
 .service .service-img img {
     width: 100%;
-    height: 100%; /* Ensure the image fills the container */
-    object-fit: cover; /* Maintain aspect ratio while covering the area */
+    height: 100%; /* Ensure image fills the container */
+    object-fit: cover; /* Cover to maintain aspect ratio */
 }
 
 .service .service-overlay {
@@ -809,65 +736,65 @@ a:focus {
     height: 100%;
     top: 0;
     left: 0;
-    padding: 30px;
+    padding: 30px; /* Padding for overlay */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(3, 15, 39, .7);
-    transition: .5s;
-    opacity: 0;
+    background: rgba(3, 15, 39, .7); /* Semi-transparent background */
+    transition: .5s; /* Transition for overlay appearance */
+    opacity: 0; /* Start invisible */
 }
 
 .service .service-item:hover .service-overlay {
-    opacity: 1;
+    opacity: 1; /* Fade in on hover */
 }
 
 .service .service-overlay p {
     margin: 0;
-    color: #ffffff;
+    color: #ffffff; /* White text for overlay */
 }
 
 .service .service-text {
     display: flex;
     align-items: center;
-    height: 60px;
-    background: #030f27;
+    height: 60px; /* Fixed height for text area */
+    background: #030f27; /* Dark background */
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevent line breaks */
+    text-overflow: ellipsis; /* Ellipsis for overflow text */
 }
 
 .service .service-text h3 {
     margin: 0;
-    padding: 0 15px 0 25px;
-    width: calc(100% - 60px);
-    font-size: 20px;
-    font-weight: 700;
-    color: #fdbe33;
+    padding: 0 15px 0 25px; /* Padding for title */
+    width: calc(100% - 60px); /* Dynamic width */
+    font-size: 20px; /* Title font size */
+    font-weight: 700; /* Bold title */
+    color: #fdbe33; /* Title color */
     text-align: left;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevent line breaks */
+    text-overflow: ellipsis; /* Ellipsis for overflow text */
 }
 
 .service .service-item a.btn {
-    width: 60px;
+    width: 60px; /* Fixed button size */
     height: 60px;
-    padding: 3px 0 0 3px;
+    padding: 3px 0 0 3px; /* Padding for button */
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    line-height: 60px;
-    font-weight: 100;
-    color: #030f27;
-    background: #fdbe33;
-    border-radius: 0;
-    transition: .3s;
+    justify-content: center; /* Center icon in button */
+    font-size: 60px; /* Icon font size */
+    line-height: 60px; /* Align icon vertically */
+    font-weight: 100; /* Light font for icon */
+    color: #030f27; /* Icon color */
+    background: #fdbe33; /* Button background */
+    border-radius: 0; /* No border radius */
+    transition: .3s; /* Smooth transition for hover */
 }
 
 .service .service-item:hover a.btn {
-    color: #ffffff;
+    color: #ffffff; /* Change icon color on hover */
 }
 
 /* Responsive adjustments */
@@ -877,11 +804,11 @@ a:focus {
     }
     
     .service .service-item a.btn {
-        font-size: 24px; /* Smaller buttons on smaller screens */
+        font-size: 24px; /* Smaller button size */
     }
     
     .service .service-text h3 {
-        font-size: 18px; /* Slightly smaller heading on smaller screens */
+        font-size: 18px; /* Slightly smaller heading */
     }
 }
 
@@ -906,7 +833,7 @@ a:focus {
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     box-sizing: content-box;
     display: block;
     width: 32px;
@@ -923,7 +850,7 @@ a:focus {
     z-index: 0;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     display: block;
     width: 100px;
     height: 100px;
@@ -938,7 +865,7 @@ a:focus {
     z-index: 1;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     display: block;
     width: 100px;
     height: 100px;
@@ -948,7 +875,7 @@ a:focus {
 }
 
 .video .btn-play:hover:after {
-    background-color: darken(#fdbe33, 10%);
+    background-color: #f1a100; /* Slightly darker shade for hover */
 }
 
 .video .btn-play img {
@@ -971,14 +898,14 @@ a:focus {
 }
 
 @keyframes pulse-border {
-  0% {
-    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
-    opacity: 0;
-  }
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
 #videoModal .modal-dialog {
@@ -1006,7 +933,6 @@ a:focus {
     opacity: 1;
 }
 
-
 /*******************************/
 /*********** Team CSS **********/
 /*******************************/
@@ -1028,6 +954,7 @@ a:focus {
 
 .team .team-img img {
     width: 100%;
+    height: auto; /* Ensures responsiveness */
 }
 
 .team .team-text {
@@ -1035,14 +962,14 @@ a:focus {
     padding: 25px 15px;
     text-align: center;
     background: #030f27;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .team .team-text h2 {
     font-size: 20px;
     font-weight: 600;
     color: #fdbe33;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .team .team-text p {
@@ -1079,32 +1006,28 @@ a:focus {
     justify-content: center;
     font-size: 18px;
     color: #ffffff;
+    transition: background 0.3s; /* Added transition for social buttons */
 }
 
 .team .team-item:hover .team-social a:first-child {
     background: #00acee;
     left: 50px;
-    transition: .3s 0s;
 }
 
 .team .team-item:hover .team-social a:nth-child(2) {
     background: #3b5998;
     left: 50px;
-    transition: .3s .1s;
 }
 
 .team .team-item:hover .team-social a:nth-child(3) {
     background: #0e76a8;
     left: 50px;
-    transition: .3s .2s;
 }
 
 .team .team-item:hover .team-social a:nth-child(4) {
     background: #3f729b;
     left: 50px;
-    transition: .3s .3s;
 }
-
 
 /*******************************/
 /*********** FAQs CSS **********/
@@ -1125,7 +1048,7 @@ a:focus {
     width: 1px;
     height: 100%;
     top: 0;
-    left: calc(50% - .5px);
+    left: calc(50% - 0.5px);
     background: #fdbe33;
 }
 
@@ -1137,7 +1060,7 @@ a:focus {
     padding-left: 15px;
 }
 
-@media(max-width: 767.98px) {
+@media (max-width: 767.98px) {
     .faqs .row::after {
         display: none;
     }
@@ -1176,7 +1099,7 @@ a:focus {
     font-size: 16px;
     line-height: 40px;
     border: 1px solid rgba(0, 0, 0, .1);
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .faqs .card-header [data-toggle="collapse"][aria-expanded="true"] {
@@ -1184,23 +1107,23 @@ a:focus {
 }
 
 .faqs .card-header [data-toggle="collapse"]:after {
-    font-family: 'font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Free';
     content: "\f067";
     float: right;
     color: #fdbe33;
     font-size: 12px;
     font-weight: 900;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .faqs .card-header [data-toggle="collapse"][aria-expanded="true"]:after {
-    font-family: 'font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Free';
     content: "\f068";
     float: right;
     color: #030f27;
     font-size: 12px;
     font-weight: 900;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .faqs .card-body {
@@ -1210,6 +1133,7 @@ a:focus {
     border: 1px solid rgba(0, 0, 0, .1);
     border-top: none;
 }
+
 
 
 /*******************************/
@@ -1229,6 +1153,7 @@ a:focus {
 
 .testimonial .container {
     max-width: 760px;
+    margin: 0 auto;
 }
 
 .about-page .testimonial {
@@ -1244,7 +1169,7 @@ a:focus {
 .testimonial .testimonial-slider-nav .slick-slide {
     position: relative;
     opacity: 0;
-    transition: .5s;
+    transition: opacity 0.5s;
 }
 
 .testimonial .testimonial-slider-nav .slick-active {
@@ -1263,7 +1188,7 @@ a:focus {
     margin-top: 37px;
     width: 100%;
     height: auto;
-    border-radius: 100px;
+    border-radius: 50%; /* Changed from 100px to 50% for a perfect circle */
 }
 
 .testimonial .testimonial-slider {
@@ -1310,7 +1235,7 @@ a:focus {
 .blog {
     position: relative;
     width: 100%;
-    padding: 45px 0 15px 0;
+    padding: 45px 0 15px;
 }
 
 .blog .blog-item {
@@ -1327,6 +1252,7 @@ a:focus {
 
 .blog .blog-img img {
     width: 100%;
+    height: auto; /* Ensuring images are responsive */
 }
 
 .blog .blog-title {
@@ -1342,7 +1268,7 @@ a:focus {
 .blog .blog-title h3 {
     margin: 0;
     padding: 0 15px 0 25px;
-    width: calc(100% - 60px);
+    flex: 1; /* Use flex to control title width */
     font-size: 18px;
     font-weight: 700;
     color: #fdbe33;
@@ -1355,7 +1281,7 @@ a:focus {
 .blog .blog-title a.btn {
     width: 60px;
     height: 60px;
-    padding: 3px 0 0 3px;
+    padding: 3px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1365,7 +1291,7 @@ a:focus {
     color: #030f27;
     background: #fdbe33;
     border-radius: 0;
-    transition: .3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .blog .blog-item:hover a.btn {
@@ -1374,7 +1300,7 @@ a:focus {
 
 .blog .blog-meta {
     position: relative;
-    padding: 25px 0 10px 0;
+    padding: 25px 0 10px;
     background: #f3f6ff;
 }
 
@@ -1404,7 +1330,7 @@ a:focus {
 }
 
 .blog .blog-text {
-    padding: 10px 25px 25px 25px;
+    padding: 10px 25px 25px;
     background: #f3f6ff;
 }
 
